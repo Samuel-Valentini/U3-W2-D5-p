@@ -22,9 +22,7 @@ const ShowResult = (props) => {
                 className="my-3 w-75 mx-auto">
                 {props.forecastData ? (
                     <div>
-                        <h1 id="forecast-table">
-                            And in the next few days in {cityName}?
-                        </h1>
+                        <h1>And in the next few days in {cityName}?</h1>
                         <section>
                             <Row>
                                 {props.forecastData.list.map((card) => {

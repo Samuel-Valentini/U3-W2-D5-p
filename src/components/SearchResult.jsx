@@ -15,7 +15,8 @@ const SearchResult = (props) => {
                         countryCode={props.countryCode}
                         currentData={props.currentData}
                     />
-                    {location.pathname === "/search" ? (
+                    {location.pathname === "/search" ||
+                    location.pathname === "/search/" ? (
                         <ShowForecast
                             city={props.city}
                             countryCode={props.countryCode}
