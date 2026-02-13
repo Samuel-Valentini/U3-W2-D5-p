@@ -7,6 +7,7 @@ import SearchResult from "./components/SearchResult";
 import getData from "./components/getData";
 import HomePlaceholder from "./components/HomePlaceholder";
 import NotFound from "./components/NotFound";
+import MFootbar from "./components/MFootbar";
 
 function App() {
     const [countryCode, setCountryCode] = useState("IT");
@@ -103,6 +104,8 @@ function App() {
                     />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
+
+                <MFootbar />
             </BrowserRouter>
         </>
     );
