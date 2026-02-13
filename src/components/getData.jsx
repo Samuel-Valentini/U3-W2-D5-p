@@ -2,12 +2,8 @@
 // auth è l'autorizzazione
 // setData è la funzione definita tramite l'hook useState
 
-const getData = (url, auth, setData) => {
-    fetch(url, {
-        headers: {
-            Authorization: `${auth}`,
-        },
-    })
+const getData = (url, setData) => {
+    fetch(url)
         .then((res) => {
             if (res.ok) {
                 return res.json();
