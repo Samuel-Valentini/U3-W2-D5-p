@@ -1,12 +1,15 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import { NavLink } from "react-router-dom";
 
 function MNavbar() {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar
+            expand="lg"
+            bg="dark"
+            data-bs-theme="dark"
+            className="border-bottom border-2 border-light mb-4">
             <Container>
                 <Navbar.Brand
                     as={NavLink}
@@ -17,11 +20,11 @@ function MNavbar() {
                         alt="MjölnirWeather Logo"
                         style={{ height: "87px" }}
                     />
-                    MjölnirWeather
+                    <span style={{ color: "#989ea4" }}>MjölnirWeather</span>
                 </Navbar.Brand>
 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
+                <Navbar.Collapse id="basic-navbar-nav" className="flex-grow-0">
                     <Nav className="me-auto">
                         <Nav.Link as={NavLink} to="/">
                             Home
