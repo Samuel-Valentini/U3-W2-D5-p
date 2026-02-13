@@ -5,17 +5,43 @@ import MSearchBar from "./components/MSearchBar";
 import { useEffect, useState } from "react";
 import SearchResult from "./components/SearchResult";
 import getData from "./components/getData";
+import HomePlaceholder from "./components/HomePlaceholder";
 
 function App() {
     const [countryCode, setCountryCode] = useState("IT");
     const [city, setCity] = useState("");
     const [currentData, setCurrentData] = useState("");
 
+    const [homeCountryCode, setHomeCountryCode] = useState("IT");
+    const [homeCity, setHomeCity] = useState("Roma");
+    const [userPositionData, setUserPositionData] = useState(null);
+    const [homeCurrentData, setHomeCurrentData] = useState("");
+
+    useEffect(() => {
+        getData("https://get.geojs.io/v1/ip/geo.json", setUserPositionData);
+    }, []);
+
     useEffect(() => {
         const searchUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&units=metric&appid=123d1880c691cad626a32e7146eb0526`;
 
         getData(searchUrl, setCurrentData);
     }, [city, countryCode]);
+
+    useEffect(() => {
+        const searchUrl = `https://api.openweathermap.org/data/2.5/weather?q=${homeCity},${homeCountryCode}&units=metric&appid=123d1880c691cad626a32e7146eb0526`;
+
+        getData(searchUrl, setHomeCurrentData);
+    }, [homeCity, homeCountryCode]);
+
+    useEffect(() => {
+        if (userPositionData) {
+            const conCod = userPositionData.country_code || "IT";
+            const cit = (userPositionData.city || "Gorizia").trim();
+
+            setHomeCountryCode(conCod);
+            setHomeCity(cit);
+        }
+    }, [userPositionData]);
 
     return (
         <>
@@ -31,11 +57,22 @@ function App() {
                     <Route
                         path="/"
                         element={
-                            <SearchResult
-                                countryCode={countryCode}
-                                city={city}
-                                currentData={currentData}
-                            />
+                            <>
+                                <SearchResult
+                                    countryCode={countryCode}
+                                    city={city}
+                                    currentData={currentData}
+                                />
+                                {homeCity && homeCurrentData ? (
+                                    <HomePlaceholder
+                                        homeCountryCode={homeCountryCode}
+                                        homeCity={homeCity}
+                                        homeCurrentData={homeCurrentData}
+                                    />
+                                ) : (
+                                    <div></div>
+                                )}
+                            </>
                         }
                     />
                     <Route
