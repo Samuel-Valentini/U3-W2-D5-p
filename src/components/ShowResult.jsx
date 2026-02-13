@@ -2,6 +2,12 @@ import { Alert, Col, Row } from "react-bootstrap";
 
 const ShowResult = (props) => {
     const iconLink = `https://openweathermap.org/payload/api/media/file/${props.currentData.weather?.[0]?.icon}.png`;
+    const cityName = props.currentData.name
+        .toLowerCase()
+        .trim()
+        .split(/\s+/)
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(" ");
 
     return (
         <>
@@ -11,7 +17,7 @@ const ShowResult = (props) => {
                 className="my-3 w-75 mx-auto">
                 <div>
                     <h1>
-                        Result for {props.city}, {props.countryCode}
+                        Result for {cityName}, {props.countryCode}
                     </h1>
                     <section class="owm-result">
                         <h2>Current Weather</h2>
