@@ -2,12 +2,16 @@ import { Alert, Col, Row } from "react-bootstrap";
 
 const ShowResult = (props) => {
     const iconLink = `https://openweathermap.org/payload/api/media/file/${props.currentData.weather?.[0]?.icon}.png`;
-    const cityName = props.currentData.name
-        .toLowerCase()
-        .trim()
-        .split(/\s+/)
-        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-        .join(" ");
+    let cityName = "";
+
+    if (props.currentData.name) {
+        cityName = props.currentData.name
+            .toLowerCase()
+            .trim()
+            .split(/\s+/)
+            .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+            .join(" ");
+    }
 
     return (
         <>
@@ -19,13 +23,13 @@ const ShowResult = (props) => {
                     <h1>
                         Result for {cityName}, {props.countryCode}
                     </h1>
-                    <section class="owm-result">
+                    <section>
                         <h2>Current Weather</h2>
 
                         <p>
                             <strong>Coordinates:</strong> lat{" "}
-                            {props.currentData.coord.lat}°, lon{" "}
-                            {props.currentData.coord.lon}°<br />
+                            {props.currentData.coord?.lat}°, lon{" "}
+                            {props.currentData.coord?.lon}°<br />
                             <strong>Data time :</strong>{" "}
                             {new Date(
                                 (props.currentData.dt +

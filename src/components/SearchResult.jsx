@@ -4,7 +4,7 @@ import WaitingSearch from "./WaitingSearch";
 const SearchResult = (props) => {
     return (
         <>
-            {props.city ? (
+            {props.city && props.currentData ? (
                 <div>
                     <ShowResult
                         city={props.city}

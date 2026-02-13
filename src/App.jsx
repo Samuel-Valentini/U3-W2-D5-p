@@ -8,7 +8,7 @@ import getData from "./components/getData";
 
 function App() {
     const [countryCode, setCountryCode] = useState("IT");
-    const [city, setCity] = useState("Trento");
+    const [city, setCity] = useState("");
     const [currentData, setCurrentData] = useState("");
 
     useEffect(() => {
@@ -40,7 +40,13 @@ function App() {
                     />
                     <Route
                         path="/search"
-                        element={<h1 className="btn btn-danger">Search</h1>}
+                        element={
+                            <SearchResult
+                                countryCode={countryCode}
+                                city={city}
+                                currentData={currentData}
+                            />
+                        }
                     />
                     <Route
                         path="/faq"
