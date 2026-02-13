@@ -1,5 +1,4 @@
 // url è l'url a cui fare la richiesta
-// auth è l'autorizzazione
 // setData è la funzione definita tramite l'hook useState
 
 const getData = (url, setData) => {

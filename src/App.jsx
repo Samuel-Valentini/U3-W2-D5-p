@@ -9,7 +9,7 @@ import getData from "./components/getData";
 function App() {
     const [countryCode, setCountryCode] = useState("IT");
     const [city, setCity] = useState("Trento");
-    const [currentData, setCurrentData] = useState({});
+    const [currentData, setCurrentData] = useState("");
 
     useEffect(() => {
         const searchUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&units=metric&appid=123d1880c691cad626a32e7146eb0526`;
