@@ -6,6 +6,7 @@ import { useState } from "react";
 
 function App() {
     const [countryCode, setCountryCode] = useState("");
+    const [city, setCity] = useState("");
 
     return (
         <>
@@ -14,6 +15,8 @@ function App() {
                 <MSearchBar
                     countryCode={countryCode}
                     setCountryCode={setCountryCode}
+                    city={city}
+                    setCity={setCity}
                 />
                 <Routes>
                     <Route

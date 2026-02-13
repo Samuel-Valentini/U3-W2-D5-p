@@ -22,6 +22,10 @@ const MSearchBar = (props) => {
                             placeholder="Look for a place... "
                             aria-label="Look for a place"
                             aria-describedby="look-for-a-place"
+                            value={props.city}
+                            onChange={(e) => {
+                                props.setCity(e.target.value);
+                            }}
                         />
                         <DropdownButton
                             id="select-country"
