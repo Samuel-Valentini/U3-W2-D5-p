@@ -32,9 +32,6 @@ function MNavbar() {
                         <Nav.Link as={NavLink} to="/search">
                             Search
                         </Nav.Link>
-                        <Nav.Link as={NavLink} to="/faq">
-                            FAQ
-                        </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

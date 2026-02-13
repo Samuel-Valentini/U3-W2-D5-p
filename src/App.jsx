@@ -75,6 +75,8 @@ function App() {
                                         homeCountryCode={homeCountryCode}
                                         homeCity={homeCity}
                                         homeCurrentData={homeCurrentData}
+                                        setCountryCode={setCountryCode}
+                                        setCity={setCity}
                                     />
                                 ) : (
                                     <div></div>
@@ -93,10 +95,7 @@ function App() {
                             />
                         }
                     />
-                    <Route
-                        path="/faq"
-                        element={<h1 className="btn btn-danger">FAQ</h1>}
-                    />
+
                     <Route
                         path="/details"
                         element={<h1 className="btn btn-danger">Details</h1>}

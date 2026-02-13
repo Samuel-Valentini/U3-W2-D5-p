@@ -1,4 +1,5 @@
 import { Alert, Col, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const HomePlaceholder = (props) => {
     const iconLink = `https://openweathermap.org/payload/api/media/file/${props.homeCurrentData.weather?.[0]?.icon}.png`;
@@ -255,6 +256,18 @@ const HomePlaceholder = (props) => {
                             </Col>
                         </Row>
                     </section>
+                </div>
+                <div className="text-center mt-3">
+                    <Link
+                        className="btn btn-light text-center mx-auto"
+                        to="/search"
+                        onClick={() => {
+                            props.setCity(props.homeCity);
+                            props.setCountryCode(props.homeCountryCode);
+                        }}>
+                        Go to the search details with the weather forecast
+                        specification
+                    </Link>
                 </div>
             </Alert>
         </>
