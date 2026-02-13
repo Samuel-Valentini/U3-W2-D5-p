@@ -11,6 +11,7 @@ function App() {
     const [countryCode, setCountryCode] = useState("IT");
     const [city, setCity] = useState("");
     const [currentData, setCurrentData] = useState("");
+    const [forecastData, setForecastData] = useState("");
 
     const [homeCountryCode, setHomeCountryCode] = useState("IT");
     const [homeCity, setHomeCity] = useState("Roma");
@@ -22,9 +23,13 @@ function App() {
     }, []);
 
     useEffect(() => {
-        const searchUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&units=metric&appid=123d1880c691cad626a32e7146eb0526`;
+        if (city) {
+            const searchUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&units=metric&appid=123d1880c691cad626a32e7146eb0526`;
+            const searchForecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city},${countryCode}&units=metric&appid=123d1880c691cad626a32e7146eb0526`;
 
-        getData(searchUrl, setCurrentData);
+            getData(searchUrl, setCurrentData);
+            getData(searchForecastUrl, setForecastData);
+        }
     }, [city, countryCode]);
 
     useEffect(() => {
@@ -38,6 +43,7 @@ function App() {
             const conCod = userPositionData.country_code || "IT";
             const cit = (userPositionData.city || "Gorizia").trim();
 
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setHomeCountryCode(conCod);
             setHomeCity(cit);
         }
@@ -62,6 +68,7 @@ function App() {
                                     countryCode={countryCode}
                                     city={city}
                                     currentData={currentData}
+                                    forecastData={forecastData}
                                 />
                                 {homeCity && homeCurrentData ? (
                                     <HomePlaceholder
@@ -82,6 +89,7 @@ function App() {
                                 countryCode={countryCode}
                                 city={city}
                                 currentData={currentData}
+                                forecastData={forecastData}
                             />
                         }
                     />
