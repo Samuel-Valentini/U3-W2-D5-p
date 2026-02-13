@@ -9,7 +9,7 @@ function MNavbar() {
             expand="lg"
             bg="dark"
             data-bs-theme="dark"
-            className="border-bottom border-2 border-light mb-4">
+            className="border-bottom border-2 border-light">
             <Container>
                 <Navbar.Brand
                     as={NavLink}
