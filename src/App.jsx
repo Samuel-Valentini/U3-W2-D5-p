@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import SearchResult from "./components/SearchResult";
 import getData from "./components/getData";
 import HomePlaceholder from "./components/HomePlaceholder";
+import NotFound from "./components/NotFound";
 
 function App() {
     const [countryCode, setCountryCode] = useState("IT");
@@ -100,10 +101,7 @@ function App() {
                         path="/details"
                         element={<h1 className="btn btn-danger">Details</h1>}
                     />
-                    <Route
-                        path="*"
-                        element={<h1 className="btn btn-danger">404</h1>}
-                    />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>
         </>
