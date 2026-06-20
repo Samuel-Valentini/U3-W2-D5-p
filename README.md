@@ -1,16 +1,84 @@
-# React + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React weather application developed as a weekly frontend project during the Epicode Full-Stack Development program.
 
-Currently, two official plugins are available:
+The goal of the project was to build a weather app that allows users to search for a city and view current weather information and forecasts using the OpenWeather API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project overview
 
-## React Compiler
+This application allows users to:
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+* search for a city;
+* view current weather information;
+* access forecast details for the following days;
+* navigate from a search/home page to a city detail page;
+* interact with a responsive weather-focused interface.
 
-## Expanding the ESLint configuration
+## Tech stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* React
+* Vite
+* JavaScript
+* HTML5
+* CSS3
+* OpenWeather API
+
+## Main features
+
+* City search
+* Current weather display
+* Forecast details
+* Dedicated detail page for selected city
+* API-based data fetching
+* Responsive layout
+
+## API
+
+The project uses the OpenWeather API:
+
+```text
+https://openweathermap.org/api
+```
+
+An API key is required to run the project locally.
+
+## Local setup
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Samuel-Valentini/U3-W2-D5-p.git
+cd U3-W2-D5-p
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Configure the OpenWeather API key.
+
+Create a local environment file if required by the project configuration and add your API key according to the variable name used in the source code.
+
+Example:
+
+```env
+VITE_OPENWEATHER_API_KEY=your_api_key_here
+```
+
+4. Start the development server:
+
+```bash
+npm run dev
+```
+
+## Notes
+
+This project was completed as a weekly frontend assignment during the Epicode Full-Stack Development program.
+
+Although it was part of a weekly module, the assignment was designed to be completed within a single working day, during course hours.
+
+The focus was on applying the concepts studied during the week and delivering a working project under time constraints.
+
+The assignment focused on React, API integration, routing between pages and weather data visualization.
